@@ -1,24 +1,20 @@
 <template>
-<div class="buscaPessoas">
-    <h1> Busca de Pessoas</h1>
-    <img alt="Basa Logo" src="../assets/basalogo.jpg">
-    <Busca msg="Busca de Pessoas"/>
+<div class="buscarTreino">
+    <h1> Busque Seu Treino</h1>
+    <BuscaTreino msg="Busca de Pessoas"/>
 </div>
 </template>
 
 <script>
-import Busca from '../components/Busca.vue'
+import BuscaTreino from '../components/BuscaTreino.vue'
 
 export default {
   name: 'Busca',
   components: {
-    Busca
+    BuscaTreino
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-img
-  margin: 20px
-
 </style>

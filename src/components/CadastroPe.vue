@@ -1,26 +1,28 @@
 <template>
-    <div class="cadastroPessoas">
-        <h2>Cadastrar Pessoas na Plataforma</h2>
-              <div class="grid-container">
-                  <div class="grid-labels">
-                    <label for="user">username</label>
-                    <label for="senha">password</label>
-                    <label for="email">email</label>
-                    <label for="phone">phone</label>
-                  </div>
-                  <div class="grid-inputs">
-                    <input type="text" id="username" />
-                    <input type="text" id="password" />
-                    <input type="text" id="email" />
-                    <input type="text" id="phone" />
-                  </div>
-                  <div class="grid-item">
-                      <div id="cadastro">
-                        <button v-on:click="cadastro()">Cadastro</button>
-                      </div>
-                  </div>
-              </div>
+  <div class="cadastroPessoas">
+    <h2>Cadastrar Pessoas na Plataforma</h2>
+    <div class="form-container">
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" />
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" id="phone" />
+      </div>
+      <div class="form-group">
+        <button @click="cadastro">Cadastrar</button>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -59,66 +61,54 @@ export default {
 
 </script>
 
-<style lang="stylus">
-.grid-labels{
-  grid-area: Label
-  display: inline-grid
-  justify-items: center
-  align-items: center
-  }
-
-.grid-inputs{
-  grid-area: Inputs
-  display: inline-grid
-  justify-items: center
-  align-items: center}
-
-.grid-item{
-  grid-area: Button}
-
-.grid-container{
-  background: lightblue
-  border: 2px solid #13b523
-  border-radius: 3px
-  display: inline-grid
-  grid-template-columns: 1fr 1fr
-  grid-template-rows: 1fr 1fr 1fr 1.1fr 0.8fr 1.1fr
-  gap: 0px 0px
-  grid-template-areas:
-    "Label Inputs"\
-    "Label Inputs"\
-    "Label Inputs"\
-    "Label Inputs"\
-    "Label Inputs"\
-    "Button Button"
+<style scoped>
+/* Estilos específicos para este componente */
+.form-container {
+  max-width: 410px;
+  height: 410px;
+  margin: 50px auto 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h2
-  margin 40px 0 0
 
-ul
-  list-style-type none
-  padding 0
+.form-group {
+  margin-bottom: 20px;
+}
 
-li
-  display inline-block
-  margin 0 10px
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
 
-a
-  color #42b983
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  width: 350PX;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-label
-  display: grid
-  color dark
-  margin 30px
+button {
+  width: 200px; /* Largura menor */
+  padding: 10px;
+  font-size: 18px; /* Tamanho da fonte menor */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Centralizar o botão */
+  margin: 20px 0px 30px 18px
+}
 
-input
-  display: grid
-  height: 18%
-  width: 90%
-  margin: 10px
-
-button
-  color dark
-  width: 50%
-  height: 50%
+button:hover {
+  background-color: #45a049;
+}
 </style>
