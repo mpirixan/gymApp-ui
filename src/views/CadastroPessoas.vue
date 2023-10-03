@@ -1,10 +1,11 @@
 <template>
-  <div class="cadastroPessoas">
-    <h1>Cadastro de Pessoas</h1>
+  <div class="cadastroPessoas" style="margin-top: 60px;">
+    <h1 class="titulo">Cadastro de Pessoas</h1>
+    <p class="descricao">Cadastre-se e comece a gerenciar suas atividades!</p>
     <div class="image-container">
-      <img alt="Basa Logo" src="../assets/gymlogo.jpg" class="logo-img">
+      <img alt="Logo da Academia" src="../assets/gymlogo.jpg" class="logo-img">
     </div>
-    <Cadastro-pe msg="Cadastro de Pessoas"/>
+    <CadastroPe msg="Cadastro de Pessoas"/>
   </div>
 </template>
 
@@ -21,20 +22,32 @@ export default {
 
 <style scoped>
 .cadastroPessoas {
-  height: 100vh;
+  height: 100vh; /* Altura total da tela */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Adicionei esta linha para garantir que os elementos sigam a ordem verticalmente */
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  color: #fff;
+}
+
+.titulo {
+  margin-bottom: 20px; /* Adicionei margem na parte inferior do título */
+}
+
+.descricao {
+  margin-top: 20px; /* Adicionei margem na parte superior do parágrafo */
 }
 
 .image-container {
   max-width: 200px; /* Largura máxima da imagem */
-  margin-bottom: 20px; /* Espaço entre a imagem e o componente CadastroPe */
+  margin-bottom: -10px; /* Espaço entre a imagem e o componente CadastroTreino */
 }
 
 .logo-img {
-  width: 100%; /* A imagem ocupará 100% da largura do seu contêiner pai */
+   max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
 }
+
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div class="cadastroPessoas">
-    <h2>Cadastrar Pessoas na Plataforma</h2>
     <div class="form-container">
       <div class="form-group">
         <label for="username">Usuário</label>
@@ -61,7 +60,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 /* Estilos específicos para este componente */
 .form-container {
   max-width: 410px;
@@ -105,7 +104,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   /* Centralizar o botão */
-  margin: 20px 0px 30px 18px
+  margin: 20px 0px  18px
 }
 
 button:hover {

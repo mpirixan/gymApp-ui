@@ -35,6 +35,9 @@ export default {
 }
 
 .logo-img {
-  width: 100%; /* A imagem ocupará 100% da largura do seu contêiner pai */
+   max-width:200px;
+    max-height:150px;
+    width: auto;
+    height: auto;
 }
 </style>
