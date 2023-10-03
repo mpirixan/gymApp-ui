@@ -4,8 +4,8 @@
     <div class="container">
       <div class="Buscar">
         <div id="busca" class="search-container">
-          <input type="text" id="email" placeholder="E-mail" class="search-input" />
-          <input type="password" id="password" placeholder="Senha" class="search-input" />
+          <input v-model="email" type="text" placeholder="E-mail" class="search-input" />
+          <input v-model="password" type="password" placeholder="Senha" class="search-input" />
           <button @click="busca" class="search-button">Buscar</button>
         </div>
       </div>
@@ -17,36 +17,34 @@
 </template>
 
 <script>
-function buscaNome () {
-  function readBody (xhr) {
-    var data
-    if (!xhr.responseType || xhr.responseType === 'text') {
-      data = xhr.responseText
-    } else if (xhr.responseType === 'document') {
-      data = xhr.responseXML
-    } else {
-      data = xhr.response
-    }
-    return data
-  }
-
-  var xhr = new XMLHttpRequest()
-  var nome
-  xhr.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      console.log(readBody(xhr))
-    }
-  }
-  const myURL = 'http://localhost:8080/api/v1/pessoas/nome/'
-  xhr.open('get', myURL + nome, true)
-  xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.send(null)
-}
+import axios from 'axios'
 
 export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
   methods: {
-    buscaNome () {
-      buscaNome()
+    async busca () {
+      try {
+        const response = await axios.get('http://localhost:8080/v1/treino/list/credentials', {
+          params: {
+            email: this.email,
+            password: this.password
+          },
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+
+        console.log(response.data)
+        // Lógica de tratamento de sucesso aqui
+      } catch (error) {
+        console.error(error)
+        // Lógica de tratamento de erro aqui
+      }
     }
   }
 }

@@ -17,14 +17,18 @@
       <div class="form-group">
         <label for="type">Tipo de Treino</label>
         <select id="type">
-          <option value="strength">Força</option>
-          <option value="endurance">Resistência</option>
-          <option value="flexibility">Flexibilidade</option>
+          <option value="Força">Força</option>
+          <option value="Resistência">Resistência</option>
+          <option value="Flexibilidade">Flexibilidade</option>
         </select>
       </div>
       <div class="form-group">
         <label for="email">Email do Usuário</label>
         <input type="email" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" />
       </div>
       <div class="form-group">
         <button @click="registrarTreino">Registrar</button>
@@ -41,13 +45,15 @@ function registrarTreino () {
   var weight = document.getElementById('weight').value
   var type = document.getElementById('type').value
   var email = document.getElementById('email').value
+  var password = document.getElementById('password').value
 
   const treinoObj = {
-    exercise: exercise,
-    sets: sets,
-    weight: weight,
-    type: type,
-    email: email
+    nome: exercise,
+    serie: sets,
+    carga: weight,
+    tipoTreino: type,
+    emailUser: email,
+    password: password
   }
 
   var dataBase = JSON.stringify(treinoObj)
