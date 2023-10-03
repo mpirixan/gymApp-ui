@@ -9,7 +9,6 @@
       <li>Monitoramento de Progresso: Acompanhe o progresso dos alunos, incluindo peso, medidas, desempenho em exercícios e metas atingidas.</li>
       <li>Personalização de Treinos: Crie planos de treino personalizados com base nas necessidades e objetivos individuais dos alunos.</li>
       <li>Comunicação Eficiente: Facilite a comunicação entre instrutores e alunos, possibilitando o compartilhamento de dicas, orientações e atualizações.</li>
-      <li>Segurança dos Dados: Priorizamos a segurança dos dados dos usuários, garantindo que todas as informações estejam protegidas e confidenciais.</li>
     </ul>
 
     <h2>Nossa Missão</h2>

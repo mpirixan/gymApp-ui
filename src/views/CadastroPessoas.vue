@@ -22,9 +22,9 @@ export default {
 
 <style scoped>
 .cadastroPessoas {
-  height: 100vh; /* Altura total da tela */
+  height: 100vh;
   display: flex;
-  flex-direction: column; /* Adicionei esta linha para garantir que os elementos sigam a ordem verticalmente */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;

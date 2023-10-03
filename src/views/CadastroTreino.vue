@@ -2,7 +2,7 @@
   <div class="cadastroTreinos">
     <h1>Cadastro de Treinos</h1>
     <div class="image-container">
-      <img alt="Logo da Academia" src="../assets/gymlogo.jpg" class="logo-img">
+      <img alt="Logo da Academia" src="../assets/tunado.png" class="logo-img">
     </div>
     <CadastroTreino msg="Cadastro de Treinos"/>
   </div>
@@ -30,9 +30,9 @@ export default {
 }
 
 .image-container {
-  max-width: 200px; /* Largura máxima da imagem */
-  margin-bottom: 20px; /* Espaço entre a imagem e o componente CadastroTreino */
-}
+  max-width: 200px;
+  margin-bottom: 20px;
+  }
 
 .logo-img {
    max-width:200px;
