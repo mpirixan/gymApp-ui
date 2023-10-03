@@ -22,7 +22,7 @@
   height: 100vh;
 
 .navbar
-  background-color #121214
+  background-color #574579
   padding 15px 0 10px 0  // Aumentei o padding superior para deixar a barra mais alta
   display flex
   justify-content center

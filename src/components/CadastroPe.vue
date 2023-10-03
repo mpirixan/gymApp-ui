@@ -100,7 +100,7 @@ button {
   width: 200px; /* Largura menor */
   padding: 10px;
   font-size: 18px; /* Tamanho da fonte menor */
-  background-color: #4caf50;
+  background-color: #45a049;
   color: white;
   border: none;
   border-radius: 5px;
@@ -110,6 +110,6 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #ad3fcd ;
 }
 </style>

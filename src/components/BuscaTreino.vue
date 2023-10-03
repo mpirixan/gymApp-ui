@@ -109,7 +109,7 @@ export default {
 }
 
 .search-button:hover {
-  background-color: #45a049;
+  background-color: #ad3fcd;
 }
 
 /* Estilos para a visualização do treino retornado */
