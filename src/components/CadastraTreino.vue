@@ -94,7 +94,7 @@ export default {
         this.$notify({
           group: 'treino',
           title: 'Erro de registro',
-          text: 'Ocorreu um erro ao registrar o treino.',
+          text: error.message,
           type: 'error'
         })
       }

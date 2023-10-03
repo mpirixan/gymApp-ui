@@ -1,6 +1,7 @@
 // Componente para buscar treinos por meio do email e senha do aluno
 <template>
   <div class="buscarTreino">
+    <notifications group="treino" />
     <h2>Use seu login da Plataforma</h2>
     <div class="container">
       <div class="Buscar">
@@ -62,6 +63,12 @@ export default {
         if (Array.isArray(response.data) && response.data.length > 0) {
           // Se houver dados na lista, atribua o primeiro item a dadosTreino
           this.dadosTreino = response.data
+          this.$notify({
+            group: 'treino',
+            title: 'Registro bem-sucedido',
+            text: 'Treinos encontrados com sucesso',
+            type: 'success'
+          })
         } else {
           // Caso contrário, defina dadosTreino como null para indicar que nenhum treino foi encontrado
           this.dadosTreino = null
@@ -70,6 +77,12 @@ export default {
         this.buscaFeita = true
       } catch (error) {
         console.error(error)
+        this.$notify({
+          group: 'treino',
+          title: 'Erro de registro',
+          text: error.message,
+          type: 'error'
+        })
         this.dadosTreino = null
         this.buscaFeita = true
       }
