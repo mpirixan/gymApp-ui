@@ -11,7 +11,16 @@
         </div>
       </div>
       <div class="Dados">
-        <!-- Resultados da busca serão exibidos aqui -->
+        <div v-if="dadosTreino">
+          <h3>Detalhes do Treino</h3>
+          <p><strong>Exercício:</strong> {{ dadosTreino.exercise }}</p>
+          <p><strong>Séries:</strong> {{ dadosTreino.sets }}</p>
+          <p><strong>Carga:</strong> {{ dadosTreino.weight }}</p>
+          <p><strong>Tipo de Treino:</strong> {{ dadosTreino.type }}</p>
+        </div>
+        <div v-else-if="buscaFeita">
+          <p>Nenhum treino encontrado para as credenciais fornecidas.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -24,7 +33,9 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      dadosTreino: null,
+      buscaFeita: false
     }
   },
   methods: {
@@ -40,11 +51,24 @@ export default {
           }
         })
 
-        console.log(response.data)
+        /* console.log(response.data)
         // Lógica de tratamento de sucesso aqui
       } catch (error) {
         console.error(error)
         // Lógica de tratamento de erro aqui
+      } */
+
+        if (response.data) {
+          this.dadosTreino = response.data
+        } else {
+          this.dadosTreino = null
+        }
+
+        this.buscaFeita = true
+      } catch (error) {
+        console.error(error)
+        this.dadosTreino = null
+        this.buscaFeita = true
       }
     }
   }
@@ -87,4 +111,25 @@ export default {
 .search-button:hover {
   background-color: #45a049;
 }
+
+/* Estilos para a visualização do treino retornado */
+ .Dados {
+  background-color: #cacae2;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  color: #000;
+}
+
+.Dados h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.Dados p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
 </style>
