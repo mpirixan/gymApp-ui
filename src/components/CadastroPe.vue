@@ -1,22 +1,23 @@
 // componente de cadastro de pessoas
 <template>
   <div class="cadastroPessoas">
+    <notifications group="foo" />
     <div class="form-container">
       <div class="form-group">
         <label for="username">Usuário</label>
-        <input type="text" id="username" />
+        <input v-model="formData.username" type="text" id="username" />
       </div>
       <div class="form-group">
         <label for="password">Senha</label>
-        <input type="password" id="password" />
+        <input v-model="formData.password" type="password" id="password" />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" />
+        <input v-model="formData.email" type="email" id="email" />
       </div>
       <div class="form-group">
         <label for="phone">Telefone</label>
-        <input type="tel" id="phone" />
+        <input v-model="formData.phone" type="tel" id="phone" />
       </div>
       <div class="form-group">
         <button @click="cadastro">Cadastrar</button>
@@ -26,40 +27,61 @@
 </template>
 
 <script>
-// função para cadastrar pessoas na plataforma
-function cadastro () {
-  var xhr = new XMLHttpRequest()
-  var username = document.getElementById('username').value
-  var password = document.getElementById('password').value
-  var email = document.getElementById('email').value
-  var phone = document.getElementById('phone').value
-
-  const jsonObj =
-{
-  username: username,
-  password: password,
-  email: email,
-  phone: phone
-}
-  var dataBase = JSON.stringify(jsonObj)
-  const myURL = 'http://localhost:8080/v1/user'
-
-  console.log(jsonObj)
-  console.log(dataBase)
-  xhr.open('POST', myURL, true)
-  xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.send(JSON.stringify(jsonObj))
-}
-
 export default {
+  data () {
+    return {
+      formData: {
+        username: '',
+        password: '',
+        email: '',
+        phone: ''
+      }
+    }
+  },
   methods: {
-    cadastro () {
-      cadastro()
+    async cadastro () {
+      const myURL = 'http://localhost:8080/v1/user'
+
+      try {
+        const response = await fetch(myURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(this.formData)
+        })
+
+        if (response.ok) {
+          // Cadastro bem-sucedido
+          this.$notify({
+            group: 'foo',
+            title: 'Cadastro bem-sucedido',
+            text: 'Usuário cadastrado com sucesso',
+            type: 'success'
+          })
+          // Limpar os campos do formulário
+          this.clearForm()
+        } else {
+          // Tratar erros de cadastro
+          this.$notify({
+            group: 'foo',
+            title: 'Erro de cadastro',
+            text: 'Ocorreu um erro ao cadastrar o usuário.',
+            type: 'error'
+          })
+        }
+      } catch (error) {
+        console.error('Erro ao realizar o cadastro:', error)
+      }
+    },
+    clearForm () {
+      this.formData.username = ''
+      this.formData.password = ''
+      this.formData.email = ''
+      this.formData.phone = ''
     }
   }
-
 }
-
 </script>
 
 <style>
