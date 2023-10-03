@@ -1,3 +1,4 @@
+// componente de cadastro de pessoas
 <template>
   <div class="cadastroPessoas">
     <div class="form-container">
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+// função para cadastrar pessoas na plataforma
 function cadastro () {
   var xhr = new XMLHttpRequest()
   var username = document.getElementById('username').value

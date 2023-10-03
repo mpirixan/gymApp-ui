@@ -1,3 +1,4 @@
+// Componente para buscar treinos por meio do email e senha do aluno
 <template>
   <div class="buscarTreino">
     <h2>Use seu login da Plataforma</h2>
@@ -17,7 +18,8 @@
 </template>
 
 <script>
-function buscaNome () {
+// Função para buscar treinos por meio do email e senha do aluno
+function buscaTreino () {
   function readBody (xhr) {
     var data
     if (!xhr.responseType || xhr.responseType === 'text') {
@@ -45,8 +47,8 @@ function buscaNome () {
 
 export default {
   methods: {
-    buscaNome () {
-      buscaNome()
+    buscaTreino () {
+      buscaTreino()
     }
   }
 }

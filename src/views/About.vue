@@ -1,5 +1,8 @@
 <template>
   <div class="about">
+   <div class="image-container">
+      <img alt="Logo da Academia" src="../assets/gobig.jpg" class="logo-img">
+    </div>
     <h1>Sobre o Gerenciador de Treinos</h1>
     <p>O Gerenciador de Treinos é uma aplicação projetada para ajudar academias a organizar e controlar os treinos de seus alunos de maneira eficaz. Com recursos avançados, nossa plataforma oferece uma experiência de treino personalizada e eficiente para todos os usuários.</p>
 
@@ -26,6 +29,10 @@ export default {
 .about {
   text-align: center;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 }
 
@@ -51,5 +58,17 @@ li {
 
 p {
   font-size: 16px;
+}
+
+.image-container {
+  max-width: 500px; /* Largura máxima da imagem */
+  margin-bottom: -10px; /* Espaço entre a imagem e o componente CadastroTreino */
+}
+
+.logo-img {
+   max-width:400px;
+    max-height:300px;
+    width: auto;
+    height: auto;
 }
 </style>
