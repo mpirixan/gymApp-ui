@@ -1,6 +1,6 @@
 <template>
   <div class="cadastroPessoas" style="margin-top: 60px;">
-    <h1 class="titulo">Cadastro de Pessoas</h1>
+    <h1 class="titulo">Cadastro de Usuário</h1>
     <p class="descricao">Cadastre-se e comece a gerenciar suas atividades!</p>
     <div class="image-container">
       <img alt="Logo da Academia" src="../assets/gymlogo.jpg" class="logo-img">

@@ -1,3 +1,4 @@
+// Componente para buscar treinos por meio do email e senha do aluno
 <template>
   <div class="buscarTreino">
     <h2>Use seu login da Plataforma</h2>

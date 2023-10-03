@@ -1,3 +1,5 @@
+// Componente criado para registrar treinos na plataforma
+
 <template>
   <div class="cadastroTreino">
     <h2>Registrar Treino na Plataforma</h2>
@@ -38,6 +40,7 @@
 </template>
 
 <script>
+// Função para registrar treinos na plataforma
 function registrarTreino () {
   var xhr = new XMLHttpRequest()
   var exercise = document.getElementById('exercise').value
