@@ -70,5 +70,7 @@ p {
     max-height:300px;
     width: auto;
     height: auto;
+    opacity: 0.8; /* Valor de opacidade (0 a 1) para tornar a imagem mais transparente */
+    border-radius: 15px
 }
 </style>
