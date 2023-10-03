@@ -26,12 +26,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: -20px;
 }
 
 .image-container {
   max-width: 200px;
-  margin-bottom: 20px;
+  margin-bottom: -10px;
   }
 
 .logo-img {

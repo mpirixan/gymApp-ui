@@ -2,7 +2,7 @@
 
 <template>
   <div class="cadastroTreino">
-    <h2>Registrar Treino na Plataforma</h2>
+    <h3>Registrar Treino na Plataforma</h3>
     <div class="form-container">
       <div class="form-group">
         <label for="exercise">Nome do Exercício</label>
@@ -82,11 +82,11 @@ export default {
 /* Estilos específicos para este componente */
 .form-container {
   max-width: 410px;
-  height: 460px;
-  margin: 50px auto 100px auto;
+  height: 530px;
+  margin: -10px auto 0px auto;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -128,10 +128,10 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 20px 0px 30px 18px;
+  margin: 0px 0px 0px 18px;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #ad3fcd;
 }
 </style>

@@ -69,8 +69,8 @@ export default {
   height: 410px;
   margin: 50px auto 100px auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #cacae2;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
