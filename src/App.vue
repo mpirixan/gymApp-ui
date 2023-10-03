@@ -18,7 +18,7 @@
   text-align center
   margin-top -9px
   color #fff
-  background: linear-gradient(to bottom, #af8bf2, #121214);
+  background: linear-gradient(to bottom, #af8bf2, #1c1626);
   height: 100vh;
 
 .navbar
@@ -35,6 +35,6 @@
   transition: color 0.3s ease;  // Adicionei uma transição para suavizar a mudança de cor
 
 .nav-link:hover
-  color #8a2be2  // Cor lilás quando o cursor passar por cima
+  color #ad3fcd  // Cor lilás quando o cursor passar por cima
   text-decoration underline
 </style>

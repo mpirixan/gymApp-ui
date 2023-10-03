@@ -39,15 +39,17 @@ export default {
 }
 
 .image-container {
-  max-width: 200px; /* Largura máxima da imagem */
-  margin-bottom: -10px; /* Espaço entre a imagem e o componente CadastroTreino */
+  max-width: 200px;
+  margin-bottom: -10px;
 }
 
 .logo-img {
-   max-width:200px;
-    max-height:150px;
-    width: auto;
-    height: auto;
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  opacity: 0.8; /* Valor de opacidade (0 a 1) para tornar a imagem mais transparente */
+  border-radius: 10px
 }
 
 </style>
