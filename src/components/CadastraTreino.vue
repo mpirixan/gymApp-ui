@@ -1,78 +1,108 @@
 // Componente criado para registrar treinos na plataforma
 
 <template>
-  <div class="cadastroTreino">
-    <h2>Registrar Treino na Plataforma</h2>
+  <div class="registrarTreino">
+    <notifications group="treino" />
     <div class="form-container">
       <div class="form-group">
-        <label for="exercise">Nome do Exercício</label>
-        <input type="text" id="exercise" />
+        <label for="exercise">Exercício</label>
+        <input v-model="formData.exercise" type="text" id="exercise" />
       </div>
       <div class="form-group">
-        <label for="sets">Número de Séries</label>
-        <input type="number" id="sets" />
+        <label for="sets">Séries</label>
+        <input v-model="formData.sets" type="number" id="sets" />
       </div>
       <div class="form-group">
         <label for="weight">Carga</label>
-        <input type="number" id="weight" />
+        <input v-model="formData.weight" type="text" id="weight" />
       </div>
       <div class="form-group">
         <label for="type">Tipo de Treino</label>
-        <select id="type">
-          <option value="Força">Força</option>
-          <option value="Resistência">Resistência</option>
-          <option value="Flexibilidade">Flexibilidade</option>
-        </select>
+        <input v-model="formData.type" type="text" id="type" />
       </div>
       <div class="form-group">
-        <label for="email">Email do Usuário</label>
-        <input type="email" id="email" />
+        <label for="email">Email</label>
+        <input v-model="formData.email" type="email" id="email" />
       </div>
       <div class="form-group">
         <label for="password">Senha</label>
-        <input type="password" id="password" />
+        <input v-model="formData.password" type="password" id="password" />
       </div>
       <div class="form-group">
-        <button @click="registrarTreino">Registrar</button>
+        <button @click="registrarTreino">Registrar Treino</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// Função para registrar treinos na plataforma
-function registrarTreino () {
-  var xhr = new XMLHttpRequest()
-  var exercise = document.getElementById('exercise').value
-  var sets = document.getElementById('sets').value
-  var weight = document.getElementById('weight').value
-  var type = document.getElementById('type').value
-  var email = document.getElementById('email').value
-  var password = document.getElementById('password').value
-
-  const treinoObj = {
-    nome: exercise,
-    serie: sets,
-    carga: weight,
-    tipoTreino: type,
-    emailUser: email,
-    password: password
-  }
-
-  var dataBase = JSON.stringify(treinoObj)
-  const myURL = 'http://localhost:8080/v1/treino'
-
-  console.log(treinoObj)
-  console.log(dataBase)
-  xhr.open('POST', myURL, true)
-  xhr.setRequestHeader('Content-Type', 'application/json')
-  xhr.send(JSON.stringify(treinoObj))
-}
-
 export default {
+  data () {
+    return {
+      formData: {
+        exercise: '',
+        sets: '',
+        weight: '',
+        type: '',
+        email: '',
+        password: ''
+      }
+    }
+  },
   methods: {
-    registrarTreino () {
-      registrarTreino()
+    async registrarTreino () {
+      const myURL = 'http://localhost:8080/v1/treino'
+      const treinoObj = {
+        nome: this.formData.exercise,
+        serie: this.formData.sets,
+        carga: this.formData.weight,
+        tipoTreino: this.formData.type,
+        emailUser: this.formData.email,
+        password: this.formData.password
+      }
+
+      try {
+        const response = await fetch(myURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(treinoObj)
+        })
+
+        if (response.ok) {
+          // Registro bem-sucedido
+          this.$notify({
+            group: 'treino',
+            title: 'Registro bem-sucedido',
+            text: 'Treino registrado com sucesso',
+            type: 'success'
+          })
+          // Limpar os campos do formulário
+          this.clearForm()
+        } else {
+          // Tratar erros de registro
+          this.$notify({
+            group: 'treino',
+            title: 'Erro de registro',
+            text: 'Ocorreu um erro ao registrar o treino.',
+            type: 'error'
+          })
+        }
+      } catch (error) {
+        console.error('Erro ao registrar o treino:', error)
+        this.$notify({
+          group: 'treino',
+          title: 'Erro de registro',
+          text: 'Ocorreu um erro ao registrar o treino.',
+          type: 'error'
+        })
+      }
+    },
+    clearForm () {
+      for (const key in this.formData) {
+        this.formData[key] = ''
+      }
     }
   }
 }

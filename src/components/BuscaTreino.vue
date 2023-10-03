@@ -11,12 +11,15 @@
         </div>
       </div>
       <div class="Dados">
-        <div v-if="dadosTreino">
+        <div v-if="dadosTreino && dadosTreino.length > 0">
           <h3>Detalhes do Treino</h3>
-          <p><strong>Exercício:</strong> {{ dadosTreino.exercise }}</p>
-          <p><strong>Séries:</strong> {{ dadosTreino.sets }}</p>
-          <p><strong>Carga:</strong> {{ dadosTreino.weight }}</p>
-          <p><strong>Tipo de Treino:</strong> {{ dadosTreino.type }}</p>
+          <div v-for="(treino, index) in dadosTreino" :key="index">
+            <p><strong>Exercício:</strong> {{ treino.nome }}</p>
+            <p><strong>Séries:</strong> {{ treino.serie }}</p>
+            <p><strong>Carga:</strong> {{ treino.carga }}</p>
+            <p><strong>Tipo de Treino:</strong> {{ treino.tipoTreino }}</p>
+            <hr>
+          </div>
         </div>
         <div v-else-if="buscaFeita">
           <p>Nenhum treino encontrado para as credenciais fornecidas.</p>
@@ -34,7 +37,12 @@ export default {
     return {
       email: '',
       password: '',
-      dadosTreino: null,
+      dadosTreino: {
+        nome: '',
+        serie: '',
+        carga: '',
+        tipoTreino: ''
+      },
       buscaFeita: false
     }
   },
@@ -51,16 +59,11 @@ export default {
           }
         })
 
-        /* console.log(response.data)
-        // Lógica de tratamento de sucesso aqui
-      } catch (error) {
-        console.error(error)
-        // Lógica de tratamento de erro aqui
-      } */
-
-        if (response.data) {
+        if (Array.isArray(response.data) && response.data.length > 0) {
+          // Se houver dados na lista, atribua o primeiro item a dadosTreino
           this.dadosTreino = response.data
         } else {
+          // Caso contrário, defina dadosTreino como null para indicar que nenhum treino foi encontrado
           this.dadosTreino = null
         }
 
